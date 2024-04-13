@@ -1,18 +1,14 @@
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Отримання даних з форми
+
     $login = $_POST['login'];
     $password = $_POST['password'];
-
-    // Перевірка логіна та паролю (можна додати додаткову перевірку)
-
-    // Шлях до папки зі створеними користувачами
     $userFolder = "./users/";
 
 
-    // Перевірка наявності папки з ім'ям користувача
+
     if (is_dir($userFolder . $login)) {
-        // Рекурсивне видалення папки з усім вмістом
+
         $deleted = deleteDir($userFolder . $login);
 
         if ($deleted) {
@@ -25,7 +21,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 }
 
-// Рекурсивна функція для видалення папки з вмістом
+
 function deleteDir($dirPath) {
     if (!is_dir($dirPath)) {
         return false;

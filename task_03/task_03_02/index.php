@@ -1,11 +1,11 @@
-<?php
-// Функція для порівняння двох файлів
-function compareFiles($file1, $file2) {
-    $unique1 = []; // рядки, унікальні для першого файлу
-    $unique2 = []; // рядки, унікальні для другого файлу
-    $duplicates = []; // рядки, що зустрічаються більше двох разів
+    <?php
 
-    // Читання першого файлу
+function compareFiles($file1, $file2) {
+    $unique1 = [];
+    $unique2 = [];
+    $duplicates = [];
+
+
     $handle1 = fopen($file1, 'r');
     while ($line = fgets($handle1)) {
         $line = trim($line);
@@ -19,7 +19,7 @@ function compareFiles($file1, $file2) {
     }
     fclose($handle1);
 
-    // Читання другого файлу
+
     $handle2 = fopen($file2, 'r');
     while ($line = fgets($handle2)) {
         $line = trim($line);
@@ -40,13 +40,12 @@ function compareFiles($file1, $file2) {
     );
 }
 
-// Отримання списків файлів
+
 $files = array(
     'file1.txt',
     'file2.txt',
 );
 
-// Обробка форми
 if (isset($_POST['delete'])) {
     $fileToDelete = $_POST['file'];
     if (in_array($fileToDelete, $files)) {

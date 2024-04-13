@@ -1,22 +1,22 @@
 <?php
-// Функція для впорядкування слів
+
 function sortWords($file) {
     $words = array();
 
-    // Читання файлу
+
     $handle = fopen($file, 'r');
     while ($line = fgets($handle)) {
         $words = array_merge($words, explode(' ', trim($line)));
     }
     fclose($handle);
 
-    // Впорядкування слів
+
     sort($words);
 
     return $words;
 }
 
-// Отримання списків файлів
+
 $files = array(
     'file.txt',
 );
